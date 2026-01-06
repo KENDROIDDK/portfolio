@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KENDROIDDK | Portafolio</title>
+    
+    <!-- Favicon / Logo de pestaña -->
+    <link rel="icon" type="image/png" href="./src/dk_logo.png">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=VT323&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ken: {
+                            black: '#0a0a0a',
+                            dark: '#121212',
+                            red: '#DC2626',
+                            redglow: '#ff4d4d',
+                            white: '#f5f5f5',
+                            celeste: '#38bdf8'
+                        }
+                    },
+                    fontFamily: {
+                        pixel: ['"VT323"', 'monospace'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'neon': '0 0 10px rgba(220, 38, 38, 0.5), 0 0 20px rgba(220, 38, 38, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #DC2626; border-radius: 5px; }
+        .pixel-text { font-family: 'VT323', monospace; }
+        .mc-card { transition: transform 0.2s, box-shadow 0.2s; }
+        .mc-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(220, 38, 38, 0.2); border-color: #DC2626; }
+        input[type="file"]::file-selector-button {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-ken-black text-ken-white font-sans overflow-x-hidden">
+
+    <!-- Navegación -->
+    <nav class="fixed w-full z-50 bg-ken-black/90 backdrop-blur-md border-b border-ken-red/30">
+        <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
+            <div class="flex-shrink-0 cursor-pointer" onclick="window.scrollTo(0,0)">
+                <span class="text-3xl font-pixel text-ken-red tracking-widest"><i class="fa-solid fa-cube mr-2"></i>KENDROIDDK</span>
+            </div>
+            <div class="hidden md:flex space-x-6 font-pixel text-lg">
+                <a href="#home" class="hover:text-ken-celeste transition-colors">Inicio</a>
+                <a href="#studios" class="hover:text-ken-celeste transition-colors">Estudios</a>
+                <a href="#modelos" class="hover:text-ken-celeste transition-colors">Modelos</a>
+                <a href="#visuals" class="hover:text-ken-celeste transition-colors">Arte</a>
+                <a href="#contacto" class="bg-ken-red px-4 py-1 rounded text-white shadow-neon hover:bg-ken-redglow transition-all">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Principal -->
+    <section id="home" class="min-h-screen flex flex-col items-center justify-center pt-24 pb-12">
+        <div class="text-center px-4 max-w-4xl">
+            <div class="mx-auto w-32 h-32 bg-ken-dark border-4 border-ken-red rounded-full flex items-center justify-center mb-6 shadow-neon relative overflow-hidden">
+                <img src="./src/dk_logo.png" alt="KENDROIDDK Logo" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                <i class="fa-solid fa-user-gear text-5xl hidden"></i>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-pixel font-bold mb-2">Ken Delgado</h1>
+            <h2 class="text-2xl font-pixel text-ken-celeste mb-6 uppercase tracking-wider">KENDROIDDK</h2>
+            <p class="text-gray-400 text-lg mb-8 leading-relaxed italic">
+                "Ecuatoriano apasionado por los videojuegos y creación de contenido. Creativo, adaptable y profesional."
+            </p>
+            
+            <!-- Redes Personales -->
+            <div class="flex justify-center space-x-8 mb-12">
+                <a href="https://youtube.com/@KENDROIDDK" target="_blank" class="text-3xl text-gray-500 hover:text-red-600 transition-colors" title="YouTube">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+                <a href="https://www.twitch.tv/ken_droid_dk" target="_blank" class="text-3xl text-gray-500 hover:text-[#9146FF] transition-colors" title="Twitch">
+                    <i class="fa-brands fa-twitch"></i>
+                </a>
+                <a href="https://ko-fi.com/kendroiddk" target="_blank" class="text-3xl text-gray-500 hover:text-[#29ABE0] transition-colors" title="Ko-fi">
+                    <i class="fa-solid fa-mug-hot"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Sección de Estudios / Desarrolladoras -->
+        <div id="studios" class="w-full max-w-5xl px-4 mt-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Tarjeta DelK Games -->
+                <div class="bg-ken-dark/50 border border-ken-red/40 p-6 rounded-lg relative overflow-hidden group hover:border-ken-red transition-all">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-16 h-16 bg-black border border-ken-red/50 rounded flex-shrink-0 overflow-hidden">
+                            <img src="./src/delk_icon.png" alt="Logo DelK Games" class="w-full h-full object-contain p-1" onerror="this.src='https://via.placeholder.com/64/000?text=DELK'">
+                        </div>
+                        <h3 class="text-3xl font-pixel text-ken-red leading-none">DelK Games</h3>
+                    </div>
+                    <p class="text-sm text-gray-300 mb-4 font-sans leading-snug">
+                        Desarrolladora enfocada a la creación, planificación y ejecución de contenido en Minecraft y desarrollo de videojuegos independientes.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="http://discord.delk.games" target="_blank" class="text-gray-400 hover:text-indigo-400 flex items-center gap-1 text-sm"><i class="fa-brands fa-discord"></i> Discord</a>
+                        <a href="https://x.com/delklab_games" target="_blank" class="text-gray-400 hover:text-white flex items-center gap-1 text-sm"><i class="fa-brands fa-x-twitter"></i> X</a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta Webo Team -->
+                <div class="bg-ken-dark/50 border border-ken-celeste/40 p-6 rounded-lg relative overflow-hidden group hover:border-ken-celeste transition-all">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-16 h-16 bg-black border border-ken-celeste/50 rounded flex-shrink-0 overflow-hidden">
+                            <img src="./src/weboteam_icon.png" alt="Logo Webo Team" class="w-full h-full object-contain p-1" onerror="this.src='https://via.placeholder.com/64/000?text=WEBO'">
+                        </div>
+                        <h3 class="text-3xl font-pixel text-ken-celeste leading-none">Webo Team</h3>
+                    </div>
+                    <p class="text-sm text-gray-300 mb-4 font-sans leading-snug">
+                        Estudio dedicado en la elaboración de contenido técnico y creativo para Minecraft. Especialistas en ejecución de proyectos.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://discord.gg/3hTB92hDdT" target="_blank" class="text-gray-400 hover:text-indigo-400 flex items-center gap-1 text-sm"><i class="fa-brands fa-discord"></i> Discord</a>
+                        <a href="https://x.com/WeboClub" target="_blank" class="text-gray-400 hover:text-white flex items-center gap-1 text-sm"><i class="fa-brands fa-x-twitter"></i> X</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería de Modelos 3D -->
+    <section id="modelos" class="py-20 bg-ken-dark">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col items-center mb-12">
+                <h2 class="text-4xl font-pixel mb-2 text-white uppercase tracking-widest">Modelos <span class="text-ken-red">3D</span></h2>
+                <div class="h-1 w-24 bg-ken-red"></div>
+            </div>
+            <div id="models-grid" class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Generado por JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Visuales (Miniaturas y Renders) -->
+    <section id="visuals" class="py-20 bg-ken-black">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col items-center mb-12">
+                <h2 class="text-4xl font-pixel mb-2 text-white uppercase tracking-widest">Miniaturas & <span class="text-ken-celeste">Renders</span></h2>
+                <div class="h-1 w-24 bg-ken-celeste"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <div class="group relative aspect-video bg-ken-dark border border-gray-800 rounded overflow-hidden">
+                    <img src="./src/ptsq_dreih.png" class="w-full h-full object-cover" alt="Miniatura 1">
+                </div>
+                <div class="group relative aspect-video bg-ken-dark border border-gray-800 rounded overflow-hidden">
+                    <img src="./src/dalgona_dreih_mt.png" class="w-full h-full object-cover" alt="Miniatura 2">
+                </div>
+                <div class="group relative aspect-video bg-ken-dark border border-gray-800 rounded overflow-hidden">
+                    <img src="./src/kk_dreih_mt.png" class="w-full h-full object-cover" alt="Miniatura 3">
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="mc-card aspect-square bg-ken-dark border border-gray-800 rounded overflow-hidden">
+                    <img src="./src/album scgima1.png" class="w-full h-full object-cover" alt="Render 1">
+                </div>
+                <div class="mc-card aspect-square bg-ken-dark border border-gray-800 rounded overflow-hidden">
+                    <img src="./src/render_soldier.png" class="w-full h-full object-cover" alt="Render 2">
+                </div>
+                <div class="mc-card aspect-square bg-ken-dark border border-gray-800 rounded overflow-hidden">
+                    <img src="./src/New Project 8_2.png" class="w-full h-full object-cover" alt="Render 3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="py-20 bg-ken-black">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-5xl font-pixel mb-8">Hablemos <span class="text-ken-red">Pronto</span></h2>
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4 group">
+                            <div class="w-12 h-12 bg-ken-dark border border-ken-red flex items-center justify-center text-ken-red group-hover:bg-ken-red group-hover:text-white transition-all">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase font-sans">Email</p>
+                                <p class="font-pixel text-xl tracking-wider">kendroiddk@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 group">
+                            <div class="w-12 h-12 bg-ken-dark border border-indigo-500 flex items-center justify-center text-indigo-500 group-hover:bg-indigo-500 group-hover:text-white transition-all">
+                                <i class="fa-brands fa-discord"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase font-sans">Discord</p>
+                                <p class="font-pixel text-xl tracking-wider">_kendroiddk_</p>
+                            </div>
+                        </div>
+                        <!-- Ko-fi en contacto -->
+                        <div class="flex items-center gap-4 group">
+                            <div class="w-12 h-12 bg-ken-dark border border-[#29ABE0] flex items-center justify-center text-[#29ABE0] group-hover:bg-[#29ABE0] group-hover:text-white transition-all">
+                                <i class="fa-solid fa-mug-hot"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase font-sans">Apoyo</p>
+                                <p class="font-pixel text-xl tracking-wider">ko-fi.com/kendroiddk</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario -->
+                <div class="bg-ken-dark/80 border border-gray-800 p-8 rounded-xl shadow-2xl">
+                    <h3 class="font-pixel text-2xl text-ken-celeste mb-6 uppercase tracking-tighter">Formulario de Pedido</h3>
+                    <form action="https://formspree.io/f/xykznlva" method="POST" enctype="multipart/form-data" class="space-y-4 font-sans">
+                        <input type="hidden" name="_subject" value="Nuevo Trabajo para KENDROIDDK">
+                        <div>
+                            <label class="text-xs text-gray-500 mb-1 block uppercase">Tu Contacto (Discord/Email)</label>
+                            <input type="text" name="cliente" required class="w-full bg-black border border-gray-700 p-3 rounded focus:border-ken-red outline-none transition-colors">
+                        </div>
+                        <div>
+                            <label class="text-xs text-gray-500 mb-1 block uppercase">Descripción del Proyecto</label>
+                            <textarea name="mensaje" required rows="4" class="w-full bg-black border border-gray-700 p-3 rounded focus:border-ken-red outline-none transition-colors"></textarea>
+                        </div>
+                        
+                        <!-- Botón para añadir imágenes de referencia -->
+                        <div>
+                            <label class="text-xs text-gray-500 mb-2 block uppercase">Referencias Visuales (Opcional - Máx 3)</label>
+                            <div class="relative group">
+                                <input type="file" id="ref-images" name="referencias" accept="image/*" multiple class="hidden">
+                                <label for="ref-images" class="flex items-center justify-center gap-2 w-full bg-ken-dark border-2 border-dashed border-gray-700 p-4 rounded cursor-pointer hover:border-ken-celeste hover:text-ken-celeste transition-all text-gray-400">
+                                    <i class="fa-solid fa-cloud-arrow-up text-xl"></i>
+                                    <span id="file-label" class="text-sm font-pixel tracking-wide uppercase">Subir Imágenes</span>
+                                </label>
+                            </div>
+                            <div id="file-count" class="text-[10px] text-gray-600 mt-2 uppercase tracking-widest text-right">0 / 3 Imágenes seleccionadas</div>
+                        </div>
+
+                        <button type="submit" class="w-full bg-ken-red py-4 font-pixel text-2xl text-white shadow-neon hover:bg-ken-redglow transition-all uppercase tracking-widest mt-4">Enviar Pedido</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black py-12 border-t border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="font-pixel text-xl text-gray-500 tracking-widest uppercase">KENDROIDDK</p>
+            <p class="text-xs text-gray-700 mt-4 font-sans">© 2026 - Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Lógica de carga de archivos
+        const fileInput = document.getElementById('ref-images');
+        const fileLabel = document.getElementById('file-label');
+        const fileCountDisplay = document.getElementById('file-count');
+
+        fileInput.addEventListener('change', function() {
+            const files = Array.from(this.files);
+            
+            if (files.length > 3) {
+                alert("Puedes seleccionar un máximo de 3 imágenes de referencia.");
+                this.value = ""; // Limpiar selección
+                fileLabel.innerText = "Subir Imágenes";
+                fileCountDisplay.innerText = "0 / 3 Imágenes seleccionadas";
+                return;
+            }
+
+            if (files.length > 0) {
+                fileLabel.innerText = `${files.length} archivo(s) listos`;
+                fileCountDisplay.innerText = `${files.length} / 3 Imágenes seleccionadas`;
+                fileCountDisplay.classList.add('text-ken-celeste');
+            } else {
+                fileLabel.innerText = "Subir Imágenes";
+                fileCountDisplay.innerText = "0 / 3 Imágenes seleccionadas";
+                fileCountDisplay.classList.remove('text-ken-celeste');
+            }
+        });
+
+        const misModelos = [
+            { img: "./src/mingle_door.png", titulo: "Mingle Door", desc: "SquidCraft 4" },
+            { img: "./src/chair.png", titulo: "Chair", desc: "SquidCraft 4" },
+            { img: "./src/partyhat.png", titulo: "Party Hat", desc: "SquidCraft 4" },
+            { img: "./src/pizza.png", titulo: "Pizza Box", desc: "SquidCraft 4" },
+            { img: "./src/pizzaslice.png", titulo: "Pizza Slice", desc: "SquidCraft 4" },
+            { img: "./src/softdrink.png", titulo: "Soft Drink", desc: "SquidCraft 4" },
+            { img: "./src/arcade.png", titulo: "Arcade", desc: "SquidCraft 4" },
+            { img: "./src/discerningpalates_door.png", titulo: "Kitchen Door", desc: "SquidCraft 4" },
+            { img: "./src/bin.png", titulo: "Bin", desc: "SquidCraft 4" },
+            { img: "./src/blender.png", titulo: "Blender", desc: "SquidCraft 4" },
+            { img: "./src/food_basket.png", titulo: "Food Basket", desc: "SquidCraft 4" },
+            { img: "./src/furnace.png", titulo: "Furnace", desc: "SquidCraft 4" },
+            { img: "./src/duckhat.png", titulo: "Duck Hat", desc: "SquidCraft 4" },
+            { img: "./src/goosehat.png", titulo: "Goose Hat", desc: "SquidCraft 4" },
+            { img: "./src/ybonnie.png", titulo: "Yellow Bonnie", desc: "Into the Pit" },
+            { img: "./src/tuti.png", titulo: "Tuti", desc: "Tienda Ecuatoriana" }
+        ];
+
+        const grid = document.getElementById('models-grid');
+        misModelos.forEach(modelo => {
+            grid.innerHTML += `
+                <div class="mc-card bg-ken-dark border border-gray-800 p-3 rounded group cursor-pointer">
+                    <div class="relative overflow-hidden mb-3">
+                         <img src="${modelo.img}" class="w-full aspect-square object-cover rounded group-hover:scale-110 transition-transform" alt="${modelo.titulo}" onerror="this.src='https://via.placeholder.com/400/111/red?text=SIN+IMAGEN'">
+                    </div>
+                    <h3 class="font-pixel text-lg text-white mb-1 leading-none">${modelo.titulo}</h3>
+                    <p class="text-[10px] text-gray-500 leading-tight uppercase tracking-tight font-sans">${modelo.desc}</p>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>
